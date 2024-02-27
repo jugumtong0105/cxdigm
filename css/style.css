@@ -64,7 +64,7 @@ html, body {
 }
 .logo span {
   color: var(--black);
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
 }
 @media screen and (max-width: 500px) {
   .logo span {
@@ -293,7 +293,7 @@ html, body {
 }
 .main-txt span span.strok {
   color: var(--black);
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
 }
 
 .main-slogan {
@@ -616,7 +616,7 @@ html, body {
 }
 .aboutus-cont.service .service-title span {
   color: var(--black);
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
 }
 .aboutus-cont.service .service-desc {
   color: var(--gray-800);
@@ -690,6 +690,39 @@ html, body {
   color: var(--white);
   font-size: 2rem;
   font-family: var(--font-700);
+}
+
+.ex-top {
+  width: 100%;
+  margin-top: 220px;
+}
+.ex-top .ex-top-slogan {
+  color: var(--white);
+  font-size: 6.25rem;
+  font-family: var(--font-700);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+.ex-top .ex-top-slogan span {
+  color: var(--black);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+}
+.ex-top .ex-top-box {
+  width: 2540px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ex-top .ex-top-box .ex-top-item {
+  background: rgba(217, 217, 217, 0.2);
+  border-radius: 30px;
+  height: 200px;
+  width: 350px;
+}
+.ex-top .ex-top-box .ex-top-item + .ex-top-item {
+  margin-left: 18px;
+  margin-bottom: 18px;
 }
 
 /* - 미디어 쿼리가 필요할때 이렇게 사용하거나 클래스 안에서 사용하거나...  - */

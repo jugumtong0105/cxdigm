@@ -620,6 +620,38 @@ html,body {
 
 }
 
+.ex-top{
+    width: 100%;
+    margin-top: 220px;
+    .ex-top-slogan {
+        color: var(--white);
+        font-size: rem(100);
+        font-family: var(--font-700);
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;      
+        span {
+            @include txtStrok;
+        }  
+    }
+    .ex-top-box {
+        width: 2540px;
+        display: flex;
+        flex-wrap: wrap;
+        .ex-top-item {
+            background: rgba($color: #d9d9d9, $alpha: 0.2);
+            border-radius: 30px;
+            height: 200px;
+            width: 350px;
+            & + .ex-top-item {
+                margin-left: 18px;
+                margin-bottom: 18px;
+            }
+        }
+    }
+}
+
 /* - 미디어 쿼리가 필요할때 이렇게 사용하거나 클래스 안에서 사용하거나...  - */
 @mixin mobile {
     @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
