@@ -11,6 +11,7 @@
   --gray-400: #9E9E9E;
   --gray-600: #666666;
   --gray-700: #777777;
+  --gray-800: #ccc;
   --blue: #4452FD;
   --navy: #252B7E;
   --yellow: #FEEB6B;
@@ -604,6 +605,7 @@ html, body {
 .aboutus-cont.service {
   position: relative;
   z-index: 999;
+  padding-bottom: 100px;
 }
 .aboutus-cont.service .service-title {
   color: var(--white);
@@ -617,7 +619,7 @@ html, body {
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
 }
 .aboutus-cont.service .service-desc {
-  color: var(--gray-600);
+  color: var(--gray-800);
   font-size: 1.5rem;
   font-family: var(--font-500);
   padding-left: 12.5rem;
@@ -646,9 +648,43 @@ html, body {
   height: 400px;
   width: 493px;
   padding: 48px;
+  position: relative;
 }
 .aboutus-cont.service .service-type-wrap .service-type .service-type-item.none {
   background: none;
+}
+.aboutus-cont.service .service-type-wrap .service-type .service-type-item.service01:before {
+  content: "";
+  display: block;
+  height: 134px;
+  width: 151px;
+  background: url(../img/service01.png) no-repeat 0 0;
+  background-size: cover;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+}
+.aboutus-cont.service .service-type-wrap .service-type .service-type-item.service02:before {
+  content: "";
+  display: block;
+  height: 190px;
+  width: 160px;
+  background: url(../img/service02.png) no-repeat 0 0;
+  background-size: cover;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+}
+.aboutus-cont.service .service-type-wrap .service-type .service-type-item.service03:before {
+  content: "";
+  display: block;
+  height: 137px;
+  width: 143px;
+  background: url(../img/service03.png) no-repeat 0 0;
+  background-size: cover;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
 }
 .aboutus-cont.service .service-type-wrap .service-type .service-type-item h3 {
   color: var(--white);
