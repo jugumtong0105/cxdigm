@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: local('Pretendard-Regular'),
+        url('../fonts/woff2/Pretendard-Regular.woff2') format('woff2'),
+        url('../fonts/woff/Pretendard-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard-Medium';
+    src: local('Pretendard-Medium'),
+        url('../fonts/woff2/Pretendard-Medium.woff2') format('woff2'),
+        url('../fonts/woff/Pretendard-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: local('Pretendard-Bold'),
+        url('../fonts/woff2/Pretendard-Bold.woff2') format('woff2'),
+        url('../fonts/woff/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard-ExtraBold';
+    src: local('Pretendard-ExtraBold'),
+        url('../fonts/woff2/Pretendard-ExtraBold.woff2') format('woff2'),
+        url('../fonts/woff/Pretendard-ExtraBold.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-ExtraBold';
+    src: local('Montserrat-ExtraBold'),
+        url('../fonts/woff2/Montserrat-ExtraBold.woff2') format('woff2'),
+        url('../fonts/woff/Montserrat-ExtraBold.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: local('Montserrat-Regular'),
+        url('../fonts/woff2/Montserrat-Regular.woff2') format('woff2'),
+        url('../fonts/woff/Montserrat-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: local('Montserrat-Thin'),
+        url('../fonts/woff2/Montserrat-Thin.woff2') format('woff2'),
+        url('../fonts/woff/Montserrat-Thin.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+@use "sass:math";
+@use "sass:selector";
+@use 'common/' as *;
+
+@import url('./reset.css');
+
+$mobile-width : 750px;
+@mixin mobile  ($media : false){
+    @media screen and (max-width: #{$mobile-width})   {
+        @content;
+    }
+} 
+$mobile-sm-width : 500px;
+@mixin mobile-sm  ($media : false){
+    @media screen and (max-width: #{$mobile-sm-width})   {
+        @content;
+    }
+} 
+
+:root {
+    font-size: rem(16);
+    --gap-size: 4rem;
+     
+    --white: #fff;
+    --black: #000;
+    --black111 : #111;
+    --gray-100: #EDEDED;
+    --gray-200: #D1D1D1;
+    --gray-400: #9E9E9E;
+    --gray-600: #666666;
+    --gray-700: #777777;
+    --blue    : #4452FD;
+    --navy    : #252B7E;
+    --yellow  : #FEEB6B;
+
+    --scroll-bar-color: #959594;
+    --height-100vh: 100vh;
+
+    --font-300 : 'Pretendard-Regular', sans-serif;
+    --font-400 : 'Pretendard-Regular', sans-serif;
+    --font-500 : 'Pretendard-Medium', sans-serif;
+    --font-600 : 'Pretendard-Medium', sans-serif;
+    --font-700 : 'Pretendard-Bold', sans-serif;
+    --font-900 : 'Pretendard-ExtraBold', sans-serif;
+
+    @include mobile() {
+        font-size: vw(16, 750);
+    }
+    @include mobile-sm() {
+        font-size: vw(13, 500);
+    }
+}
+
+/* ============= S : coming soon 페이지 CSS =================== */
+
+.welcome-txt {
+    font-family: var(--font-900);
+    font-size:  rem(110); 
+    padding: rem(200);
+    line-height: 1.2;
+    @include mobile(){
+        padding: rem(100) rem(40) rem(40) rem(40);
+    }
+    
+    .txt-border {
+        color: var(--white);
+        -webkit-text-stroke: 2px var(--black111);
+        
+    }
+}
+
+.copyright {
+    font-family: var(--font-300);
+    font-size: rem(14);
+    position: absolute;
+    bottom: rem(110);
+    left: rem(200);
+}
+
+.back-txt {
+    font-family: var(--font-900);
+    font-size: rem(240);
+    color: var(--white);
+    -webkit-text-stroke: 2px rgba($color: #000000, $alpha: 0.04);
+    position: fixed;
+    z-index: -1;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+/* ============= E : coming soon 페이지 CSS =================== */
+

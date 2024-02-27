@@ -1,0 +1,79 @@
+@charset "UTF-8";
+@import url("./reset.css");
+:root {
+  font-size: 1rem;
+  --gap-size: 4rem;
+  --white: #fff;
+  --black: #000;
+  --black111: #111;
+  --gray-100: #EDEDED;
+  --gray-200: #D1D1D1;
+  --gray-400: #9E9E9E;
+  --gray-600: #666666;
+  --gray-700: #777777;
+  --blue: #4452FD;
+  --navy: #252B7E;
+  --yellow: #FEEB6B;
+  --scroll-bar-color: #959594;
+  --height-100vh: 100vh;
+  --font-300: "Pretendard-Regular", sans-serif;
+  --font-400: "Pretendard-Regular", sans-serif;
+  --font-500: "Pretendard-Medium", sans-serif;
+  --font-600: "Pretendard-Medium", sans-serif;
+  --font-700: "Pretendard-Bold", sans-serif;
+  --font-900: "Pretendard-ExtraBold", sans-serif;
+}
+@media screen and (max-width: 750px) {
+  :root {
+    font-size: 2.1333333333vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  :root {
+    font-size: 2.6vw;
+  }
+}
+
+/* ============= S : coming soon 페이지 CSS =================== */
+.welcome-txt {
+  font-family: var(--font-900);
+  font-size: 6.875rem;
+  padding: 12.5rem;
+  line-height: 1.2;
+}
+@media screen and (max-width: 750px) {
+  .welcome-txt {
+    padding: 6.25rem 2.5rem 2.5rem 2.5rem;
+  }
+}
+.welcome-txt .txt-border {
+  color: var(--white);
+  -webkit-text-stroke: 2px var(--black111);
+}
+
+.copyright {
+  font-family: var(--font-300);
+  font-size: 0.875rem;
+  position: absolute;
+  bottom: 6.875rem;
+  left: 12.5rem;
+}
+
+.back-txt {
+  font-family: var(--font-900);
+  font-size: 15rem;
+  color: var(--white);
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  z-index: -1;
+  top: 50%;
+  left: 0;
+  width: 200%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+/* ============= E : coming soon 페이지 CSS =================== */
