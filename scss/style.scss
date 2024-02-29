@@ -55,12 +55,12 @@ $mobile-exsm-width : 375px;
     --font-mon-500 : 'Montserrat-Regular', sans-serif;
     --font-mon-900 : 'Montserrat-ExtraBold', sans-serif;
 
-    @include mobile() {
-        font-size: vw(14, 750);
-    }
-    @include mobile-sm() {
-        font-size: vw(13, 500);
-    }
+    // @include mobile() {
+    //     font-size: vw(14, 750);
+    // }
+    // @include mobile-sm() {
+    //     font-size: vw(13, 500);
+    // }
 }
 
 html,body {
@@ -75,12 +75,14 @@ html,body {
     position: absolute;
     top: rem(45);
     left: 10%;
-    z-index: 9999;
+    z-index: 999;
     @include mobile() {
         left: rem(24);
+        font-size: rem(24);
     }
     @include mobile-sm() {
         left: rem(24);
+        font-size: rem(24);
     }
     span {
         @include txtStrok;
@@ -92,13 +94,15 @@ html,body {
 .total-menu {
     position: absolute;
     right: 10%;
-    top: rem(47);
-    z-index: 999;
+    top: rem(45);
+    z-index: 9999;
     @include mobile() {
         right: rem(24);
+        top: rem(40);
     }
     @include mobile-sm() {
         right: rem(24);
+        top: rem(45);
     }
     
     a.total-menu-alink {
@@ -106,6 +110,10 @@ html,body {
         height: rem(60);
         position: relative;
         display: block;
+        @include mobile-sm() {
+            width: rem(26);
+            height: rem(26);
+        }
         .line {
             height: 4px;
             background-color: var(--white);
@@ -114,12 +122,22 @@ html,body {
             left: rem(10);
             right: rem(10);
             transition: all 0.5s;
+            @include mobile-sm() {
+                height: 2px;
+                top: rem(8);
+                left: rem(5);
+                right: rem(5);
+            }
             &.bottom {
                 height: 4px;
                 background-color: var(--white);
                 position: absolute;
                 bottom: rem(18);
                 top: auto;
+                @include mobile-sm() {
+                    height: 2px;
+                    bottom: rem(8);
+                }
             }
         }
         span {
@@ -137,6 +155,7 @@ html,body {
         opacity: 0;
         transition: all 0.5s;
         overflow: hidden;
+        z-index: 999;
         &.fade{
             animation: totalMenu 1s ease-in-out forwards;
             //transform: scaleX(1);
@@ -147,25 +166,96 @@ html,body {
         .total-menu-list {
             position: absolute;
             left: 200px;
-            top: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 550px;
+
             @include mobile() {
                 left: 24px;
                 top: 120px;
+                transform: translateY(0);
             }
             @include mobile-sm() {
                 left: 24px;
-                top: 120px;
+                top: 15vh;
+                transform: translateY(0);
             }
-            .menu-alink {
-                display: block;
-                font-size: rem(100);
-                font-family: var(--font-700);
-                span {
+            .menu-list-box{
+                height: 120px;
+                overflow:hidden;
+                @include mobile() {
+                    height: 50px;
+                }
+                @include mobile-sm() {
+                    height: 50px
+                    
+                }
+                &+.menu-list-box {
+                    margin-top: 60px;
+                    @include mobile() {
+                        margin-top: 30px;
+                    }
+                    @include mobile-sm() {
+                        margin-top: 30px;
+                        
+                    }
+                }
+                .menu-alink {
+                    display: inline-block;
+                    font-size: rem(100);
+                    font-family: var(--font-900);
+                    position: relative;
+                    transform: translateY(120px);
+                    
+                    &.up {
+                        transform: translateY(0);
+                        transition: transform 0.7s ease-in-out;
+                    }
+                    &.over:before {
+                        content:'';
+                        display: block;
+                        height: 12px;
+                        width: 0;
+                        background: linear-gradient(90deg, rgb(97, 58, 255) 0%, rgb(209, 102, 255) 100%);
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        animation: lineAni 0.5s ease-in-out  forwards;
+                    }
+                    &.out:before {
+                        content:'';
+                        display: block;
+                        height: 12px;
+                        width: 100%;
+                        background: linear-gradient(90deg, rgb(97, 58, 255) 0%, rgb(209, 102, 255) 100%);
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        animation: lineAniReverse 0.5s ease-in-out  forwards;
+                    }
+    
+                    @keyframes lineAni {
+                        0% { width: 0; }
+                        100% { width: 100%;}
+                    }
+                    @keyframes lineAniReverse {
+                        0% { width: 100%; }
+                        100% { width: 0%;}
+                    }
+                    @include mobile-sm() {
+                        font-size: rem(40);
+                    }
                     span {
-                        opacity: 0;
+                        span {
+                            opacity: 0;
+                        }
+                    }
+                    & + .menu-alink {
+                        margin-top: 60px;
                     }
                 }
             }
+            
         }
         .total-menu-info {
             position: absolute;
@@ -173,23 +263,39 @@ html,body {
             top: 230px;
             @include mobile() {
                 left: 24px;
-                top: 420px;
+                top: 500px;
             }
             @include mobile-sm() {
                 left: 24px;
-                top: 420px;
+                top: 50vh;
             }
             .total-info-item{
                 & + .total-info-item{
-                    margin-top: 20px;
+                    margin-top: 32px;
                 }
                 .total-info-title {
                     font-size: rem(16);
                     color: var(--gray-700);
+                    font-family: var(--font-500);
+                    @include mobile() {
+                        font-size: rem(13);
+                    }
+                    @include mobile-sm() {
+                        font-size: rem(13);
+                    }
                 }
                 .total-info-cont {
                     font-size: rem(30);
                     color: var(--black111);
+                    font-family: var(--font-500);
+                    line-height: 1.2;
+                    margin-top: 6px;
+                    @include mobile() {
+                        font-size: rem(18);
+                    }
+                    @include mobile-sm() {
+                        font-size: rem(18);
+                    }
                 }
             }
 
@@ -203,6 +309,12 @@ html,body {
             position: absolute;
             right: 10%;
             top: rem(47);
+            @include mobile() {
+                right: 24px;
+            }
+            @include mobile-sm() {
+                right: 24px;
+            }
             &:before, &:after {
                 position: absolute;
                 left: 15px;
@@ -242,6 +354,7 @@ html,body {
     }
 
 }
+
 .main-txt {
     color: var(--white);
     font-family: var(--font-900);
@@ -252,12 +365,12 @@ html,body {
     width: rem(1000);
     height: rem(300);
     @include mobile() {
-        font-size: rem(60);
+        font-size: rem(48);
         left: rem(24);
         top: rem(140)
     }
     @include mobile-sm() {
-        font-size: rem(96);
+        font-size: rem(48);
         left: rem(24);
     }
     span {
@@ -273,11 +386,14 @@ html,body {
         
     }
 }
+.strok {
+    @include txtStrok;
+}
 .main-slogan {
     color: var(--white);
     font-family: var(--font-mon-300);
     font-size: rem(250);
-    width: rem(3000);
+    width: rem(4000);
     position: absolute;
     top: rem(500);
     left: rem(650);
@@ -287,10 +403,12 @@ html,body {
     }
     span {
         font-family: var(--font-mon-300);
+        color: #808080;
         span {
             opacity: 0;
             &.bold {
-                font-weight: 900;
+                color: var(--white);
+                font-family: var(--font-mon-500);
             }
         }
     }
@@ -299,7 +417,7 @@ html,body {
         top: rem(400);
     }
     @include mobile-sm() {
-        font-size: rem(200);
+        font-size: rem(100);
         top: rem(350);
     }
 }
@@ -325,10 +443,13 @@ html,body {
     left: 35vw;
     animation: lineMove 1s ease-in-out 8s forwards;
     @include mobile() {
-        top: rem(240);
+        top: rem(265);
+        height: rem(10);
+        left: rem(24);
     }
     @include mobile-sm() {
-        top: rem(400);
+        height: rem(10);
+        top: rem(265);
         left: rem(24);
     }
 }
@@ -346,21 +467,21 @@ html,body {
 
 .main-desc {
     position: absolute;
-    top: rem(450);
+    top: rem(520);
     left: 35%;
     @include mobile() {
-        top: rem(330);
+        top: rem(297);
         left: rem(24);
         right: rem(24);
     }
     @include mobile-sm() {
-        top: rem(450);
+        top: rem(297);
         left: rem(24);
         right: rem(24);
     }
     .desc-title {
         color: var(--white);
-        font-family: var(--font-900);
+        font-family: var(--font-700);
         font-size: rem(60);
         line-height: 1.2;
         & + .desc-cont {
@@ -371,16 +492,14 @@ html,body {
                 opacity: 0;
             }
         }
-        @include mobile() {
-            font-size: rem(64);
-        }
+        
         @include mobile-sm() {
-            font-size: rem(64);
+            font-size: rem(32);
         }
     }
     .desc-cont {
-        color: var(--white);
-        font-family: var(--font-500);
+        color: #ccc;
+        font-family: var(--font-400);
         font-size: rem(24);
         line-height: 1.5;
         span {
@@ -392,11 +511,8 @@ html,body {
             margin-top: rem(48);
         }
 
-        @include mobile() {
-            font-size: rem(28);
-        }
         @include mobile-sm() {
-            font-size: rem(28);
+            font-size: rem(14);
         }
     }
 }
@@ -417,7 +533,10 @@ html,body {
     @include mobile-sm() {
         bottom: rem(24);
         left: rem(24);
-        font-size: rem(12);
+        font-size: rem(14);
+    }
+    &.sub {
+        position: relative;
     }
 }
 
@@ -432,6 +551,16 @@ html,body {
         color: var(--white);
         font-family: var(--font-700);
         padding: rem(14) rem(32);
+    }
+}
+.btn-typeA {
+    background: #613AFF;
+    border-radius: 100px;
+    color: var(--white);
+    font-family: var(--font-700);
+    padding: rem(14) rem(32);
+    &.off {
+        background: #1B1A1D;
     }
 }
 
@@ -451,32 +580,32 @@ html,body {
         position: relative;
         z-index: 99;
         @include mobile() {
-            height: 580px;
+            height: 400px;
         }
         @include mobile-sm() {
-            height: 45vh;
+            height: 400px;
             
         }
         @include mobile-exsm(){
-            height: 55vh;
+            height: 380px;
         }
         .slogan-box {
             color: var(--white);
             font-size: rem(100);
-            font-family: var(--font-900);
+            font-family: var(--font-700);
             position: absolute;
             left: 10%;
             top: 200px;
             width: 1050px;
             @include mobile() {
-                font-size: rem(60);
-                top: rem(140);
+                font-size: rem(40);
+                top: rem(120);
                 left: rem(24);
             }
             @include mobile-sm() {
-                font-size: rem(70);
+                font-size: rem(40);
                 left: rem(24);
-                top: rem(150);
+                top: rem(120);
                 
             }
             span {
@@ -488,7 +617,7 @@ html,body {
         .text-box {
             color: rgba($color: #fff, $alpha: 0.8);
             font-size: rem(24);
-            font-family: var(--font-500);
+            font-family: var(--font-400);
             position: absolute;
             right: 10%;
             bottom:-6vh;
@@ -496,28 +625,28 @@ html,body {
             word-break: keep-all;
             width: 752px;
             @include mobile() {
-                font-size: rem(22);
+                font-size: rem(14);
                 width: 90vw;
-                bottom: -8vh;
+                bottom: -20px;
                 left: rem(24);
             }
             @include mobile-sm() {
-                font-size: rem(22);
+                font-size: rem(14);
                 width: 90vw;
-                bottom: -5vh;
+                bottom: -40px;
                 left: rem(24);
             }
         }
     }
     &.video {
-        height: 70vh;
+        height: auto;
         overflow: hidden;
         position: relative;
         @include mobile() {
-            height: 50vh;
+            height: auto;
         }
         @include mobile-sm() {
-            height: 50vh;
+            height: auto;
         }
         .dimm {
             background-color: rgba($color: #000000, $alpha: 0.55);
@@ -536,8 +665,17 @@ html,body {
             color: var(--white);
             font-size: rem(100);
             font-family: var(--font-700);
-            padding-left: rem(200);
+            padding-left: 10vw;
             margin-top: rem(-60);
+            @include mobile() {
+                padding-left: 24px;
+                font-size: rem(40);
+            }
+            @include mobile-sm() {
+                padding-left: 24px;
+                font-size: rem(40);
+                margin-top: rem(-30);
+            }
             span{
                 @include txtStrok;
             }
@@ -546,9 +684,23 @@ html,body {
             color: var(--gray-800);
             font-size: rem(24);
             font-family: var(--font-500);
-            padding-left: rem(200);
-            margin-top: rem(100);
+            padding-left: 10vw;
+            margin-top: 100px;
             width: 45vw;
+            @include mobile() {
+                margin-top: 5vh;
+                width: 100%;
+                padding-left: rem(24);
+                padding-right: rem(24);
+                font-size: rem(14);
+            }
+            @include mobile-sm() {
+                margin-top: 3vh;
+                width: 100%;
+                padding-left: rem(24);
+                padding-right: rem(24);
+                font-size: rem(14);
+            }
             .btn-wrap {
                 margin-top: rem(50);
             }
@@ -556,14 +708,28 @@ html,body {
         .service-type-wrap {
             display: flex;
             justify-content: flex-end;
-            padding-right: rem(200);
-            margin-top: -250px;
+            padding-right: 10vw;
+            margin-top: -13vh;
+            @include mobile() {
+                padding: 0 24px;
+                margin-top: -10vh;
+            }
+            @include mobile-sm() {
+                padding: 0 24px;
+                margin-top: -10vh;
+            }
             .service-type {
                 display: flex;
                 align-items: center;
                 width: 1000px;
                 flex-wrap: wrap;
                 gap: 10px;
+                @include mobile() {
+                    width: auto;
+                }
+                @include mobile-sm() {
+                    width: auto;
+                }
                 .service-type-item {
                     background-color: #1B1A1D;
                     border-radius: 50px;
@@ -571,6 +737,17 @@ html,body {
                     width: 493px;
                     padding: 48px;
                     position: relative;
+                    @include mobile() {
+                        width: 100%;
+                        height: 120px;
+                        border-radius: 20px;
+                    }
+                    @include mobile-sm() {
+                        width: 100%;
+                        height: 120px;
+                        border-radius: 20px;
+                        padding: 20px;
+                    }
                     &.none {
                         background:none;
                     }
@@ -580,10 +757,22 @@ html,body {
                         height: 134px;
                         width: 151px;
                         background: url(../img/service01.png) no-repeat 0 0;
-                        background-size: cover;
+                        background-size: 100%;
                         position: absolute;
                         right:50px;
                         bottom: 50px;
+                        @include mobile() {
+                            height: 72px;
+                            width: 75px;
+                            right:20px;
+                            bottom: 20px;
+                        }
+                        @include mobile-sm() {
+                            height: 72px;
+                            width: 75px;
+                            right:20px;
+                            bottom: 20px;
+                        }
                     }
                     &.service02:before {
                         content:'';
@@ -591,10 +780,22 @@ html,body {
                         height: 190px;
                         width: 160px;
                         background: url(../img/service02.png) no-repeat 0 0;
-                        background-size: cover;
+                        background-size: 100%;
                         position: absolute;
                         right:50px;
                         bottom: 50px;
+                        @include mobile() {
+                            height: 88px;
+                            width: 72px;
+                            right:20px;
+                            bottom: 20px;
+                        }
+                        @include mobile-sm() {
+                            height: 88px;
+                            width: 72px;
+                            right:20px;
+                            bottom: 20px;
+                        }
                     }
                     &.service03:before {
                         content:'';
@@ -602,15 +803,30 @@ html,body {
                         height: 137px;
                         width: 143px;
                         background: url(../img/service03.png) no-repeat 0 0;
-                        background-size: cover;
+                        background-size: 100%;
                         position: absolute;
                         right:50px;
                         bottom: 50px;
+                        @include mobile() {
+                            height: 72px;
+                            width: 72px;
+                            right:20px;
+                            bottom: 20px;
+                        }
+                        @include mobile-sm() {
+                            height: 72px;
+                            width: 72px;
+                            right:20px;
+                            bottom: 20px;
+                        }
                     }
                     h3{
                         color: var(--white);
                         font-size: rem(32);
                         font-family: var(--font-700);
+                        @include mobile-sm() {
+                            font-size: rem(20);
+                        }
                     }
                 }
             }
@@ -622,7 +838,14 @@ html,body {
 
 .ex-top{
     width: 100%;
-    margin-top: 220px;
+    margin-top: 20vh;
+    position: relative;
+    @include mobile() {
+        margin-top: 15vh;
+    }
+    @include mobile-sm() {
+        margin-top: 15vh;
+    }   
     .ex-top-slogan {
         color: var(--white);
         font-size: rem(100);
@@ -630,7 +853,14 @@ html,body {
         position: absolute;
         top: 50%;
         width: 100%;
-        text-align: center;      
+        text-align: center;
+        transform: translateY(-50%);   
+        @include mobile() {
+            font-size: rem(40);
+        }
+        @include mobile-sm() {
+            font-size: rem(40);
+        }   
         span {
             @include txtStrok;
         }  
@@ -644,11 +874,216 @@ html,body {
             border-radius: 30px;
             height: 200px;
             width: 350px;
+            @include mobile() {
+                width: 940px;
+                font-size: rem(40);
+                border-radius: 10px;
+            }
+            @include mobile-sm() {
+                width: 940px;
+                width: 147px;
+                height: 95px;
+                border-radius: 10px;
+            }  
             & + .ex-top-item {
-                margin-left: 18px;
-                margin-bottom: 18px;
+                margin-left: 10px;
+                margin-bottom: 10px;
             }
         }
+    }
+}
+
+.ex-cont {
+    padding: 10vh 10vw;
+    @include mobile() {
+        padding: 24px;
+    }
+    @include mobile-sm() {
+        padding: 24px;
+    }  
+    h2 {
+        color: var(--white);
+        font-size: rem(100);
+        font-family: var(--font-700);
+        @include mobile() {
+            font-size: rem(40);
+        }
+        @include mobile-sm() {
+            font-size: rem(40);
+        }  
+        span {
+            @include txtStrok;
+        }
+    }
+    .ex-cont-desc {
+        color: var(--gray-800);
+        font-size: rem(24);
+        margin-top: 24px;
+        @include mobile-sm() {
+            font-size: rem(14);
+        }  
+    }
+}
+.tab-header {
+    margin-top: 100px;
+    white-space: nowrap;
+    overflow-x: auto;
+    @include mobile(){
+        margin-top: 50px;
+    }
+    @include mobile-sm(){
+        margin-top: 50px;
+    }
+    .btn-typeA {
+        &+ .btn-typeA {
+            margin-left: 16px;
+            @include mobile-sm() {
+                margin-left: 10px;
+                padding: rem(14) rem(20);
+            }  
+        }
+    }
+}
+.tab-panel {
+    margin-top: 72px;
+    @include mobile(){
+        margin-top: 30px;
+    }
+    @include mobile-sm(){
+        margin-top: 30px;
+    }
+    li {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 0;
+        border-top: 1px solid rgba($color: #fff, $alpha: 0.2);
+        @include mobile() {
+            padding: 20px 0;
+        }
+        @include mobile-sm() {
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }  
+        .list-title {
+            color: var(--white);
+            font-size: rem(30);
+            font-family: var(--font-500);
+            @include mobile() {
+                font-size: rem(16);
+            }
+            @include mobile-sm() {
+                font-size: rem(16);
+                width: 100%;
+            }  
+        }
+        .list-date {
+            color: var(--white);
+            font-size: rem(24);
+            font-family: var(--font-500);
+            @include mobile() {
+                font-size: rem(14);
+            }
+            @include mobile-sm() {
+                font-size: rem(14);
+                margin-top: rem(8);
+            }  
+        }
+    }
+    
+}
+
+.contact-cont {
+    padding: 20vh 10vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    @include mobile() {
+        padding: 15vh 24px;
+    }
+    @include mobile-sm() {
+        padding: 15vh 24px 8vh;
+    }
+    .contact-slogan {
+        color: var(--white);
+        font-size: rem(100);
+        font-family: var(--font-700);
+        width: 100%;
+        @include mobile() {
+            font-size: rem(40);
+        }
+        @include mobile-sm() {
+            font-size: rem(40);
+        }
+        span {
+            @include txtStrok;
+        }
+    }
+    .text-box {
+        color: var(--gray-800);
+        font-size: rem(24);
+        font-family: var(--font-500);
+        margin-top: 10vh;
+        line-height: 1.5;
+        width: 50%;
+        margin-right: 2vw;
+        @include mobile() {
+            margin-top: 4vh;
+            font-size: rem(14);
+        }
+        @include mobile-sm() {
+            margin-top: 4vh;
+            font-size: rem(14);
+        }
+    }
+    .contact-info {
+        color: var(--white);
+        font-family: var(--font-500);
+        margin-top: 10vh;
+        
+        @include mobile() {
+            margin-top: 7vh;
+            margin-left: 0;
+        }
+        @include mobile-sm() {
+            margin-top: 7vh;
+            margin-left: 0;
+        }
+        .info-box {
+            & + .info-box {
+                margin-top: 32px;
+            }
+            .title {
+                font-size: rem(13);
+                color: #808080;
+                display: block;
+            }
+            .info {
+                font-size: rem(30);
+                display: block;
+                margin-top: 6px;
+            }
+        }
+        
+    }
+}
+.map-area {
+    background: url(../img/map.png) no-repeat 50% 50%;
+    background-size: cover;
+    height: 800px;
+    margin-bottom: 10vh;
+    @include mobile() {
+        height: 420px;
+    }
+    @include mobile-sm() {
+        height: 420px;
+    }
+}
+.mo-br{
+    display: none;
+}
+.mobile{
+    .mo-br {
+        display: block;
     }
 }
 

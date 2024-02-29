@@ -3,20 +3,38 @@
         return this.each(function () {
             var $this = $(this);
             var line = $this.find('.line');
+            var mo = $('body').hasClass('mobile');
+            
             $this.on('mouseover', function(){
 
                 line.each(function(){
                     var $tt = $(this);
                     if($tt.hasClass("bottom")){
-                        $tt.css({
-                            'transform':'rotate(-45deg) translate(3px, 5px)',
-                            'transform-origin' : 'left bottom',
-                        });
+                        if(mo){
+                            $tt.css({
+                                'transform':'rotate(-21deg) translate(1px, 5px)',
+                                'transform-origin' : 'left bottom',
+                            });
+                        }else {
+                            $tt.css({
+                                'transform':'rotate(-25deg) translate(1px, 3px)',
+                                'transform-origin' : 'left bottom',
+                            });
+                        }
+                        
                     }else {
-                        $tt.css({
-                            'transform':'rotate(45deg) translate(-3px, -7px)',
-                            'transform-origin' : 'left bottom',
-                        });
+                        if(mo){
+                            $tt.css({
+                                'transform':'rotate(21deg) translate(1px, 0px)',
+                                'transform-origin' : 'left bottom',
+                            });
+                        }else {
+                            $tt.css({
+                                'transform':'rotate(21deg) translate(-3px, -7px)',
+                                'transform-origin' : 'left bottom',
+                            });
+                        }
+                        
                     }
                 });
 
@@ -37,6 +55,7 @@
             contentMobile: "",
             strok: "strok",
             isStrok : true,
+            strokNum : [],
             target: ".main-txt",
             time: 0,
             bold: "bold",
@@ -57,7 +76,7 @@
             
             const txt = document.querySelector(settings.target);
             var fadeSec = 0.5;
-            var animSpeed = 15;
+            var animSpeed = 25;
 
             const changeLineBreak = (letter) => {
                 return letter.map(text => text === "\n" ? "<br>" : text);
@@ -65,11 +84,10 @@
 
             const typing = function(){
                 const letter = changeLineBreak(content.split(""));
-
+                
                 for(var i = 0; i < letter.length; i++){
-
                     if(settings.isStrok){
-                        if(i>=20){
+                        if(i>=settings.strokNum[0] && i<settings.strokNum[1]){
                             var s = "<span id='"+i+"' class='"+ settings.strok +"' style='animation:charAnim " + fadeSec + "s linear " + i/animSpeed + "s forwards;'>"+letter[i]+"</span>";    
                         }else {
                             var s = "<span id='"+i+"' style='animation:charAnim " + fadeSec + "s linear " + i/animSpeed + "s forwards;'>"+letter[i]+"</span>";
@@ -83,7 +101,6 @@
                     }else {
                         var s = "<span id='"+i+"' style='animation:charAnim " + fadeSec + "s linear " + i/animSpeed + "s forwards;'>"+letter[i]+"</span>";
                     }
-                    
                     var node = document.createElement("span");
                     node.innerHTML = s;
                     
@@ -147,60 +164,116 @@
             var $link = $this.find('>a');
             var $target = $this.find('.total-menu-cont');
             var close = $(this).find('.close');
-            var alinks = $(this).find('.menu-alink.menu01');
-            var alinks2 = $(this).find('.menu-alink.menu02');
-            var alinks3 = $(this).find('.menu-alink.menu03');
+            var alinks = $(this).find('.menu-alink');
+            // var alinks2 = $(this).find('.menu-alink.menu02');
+            // var alinks3 = $(this).find('.menu-alink.menu03');
             $link.on('click', function(){
                 $target.removeClass('revers');
                 $target.addClass('fade');
-                
-                alinks.typingTxt({
-                    remove: false,
-                    content: "About us",
-                    contentMobile: "About us",
-                    strok: "",
-                    isStrok: false,
-                    target: ".menu01",
-                    time: 1000,
-                    bold: "bold",
-                    isBold : false,
-                    boldNum : [0, 9]
+                alinks.each(function(index){
+                    var tt = $(this);
+                    if(index==0){
+                        setTimeout(function(){
+                            tt.addClass('up');
+                        },800);    
+                    }else {
+                        setTimeout(function(){
+                            tt.addClass('up');
+                        },800+ 280*((index+1)/3));
+                    }
+                    
+                    
                 });
-                alinks2.typingTxt({
-                    remove: false,
-                    content: "eXperience ",
-                    contentMobile: "eXperience ",
-                    strok: "",
-                    isStrok: false,
-                    target: ".menu02",
-                    time: 1000,
-                    bold: "bold",
-                    isBold : false,
-                    boldNum : [0, 9]
-                });
-                alinks3.typingTxt({
-                    remove: false,
-                    content: "Contact",
-                    contentMobile: "Contact",
-                    strok: "",
-                    isStrok: false,
-                    target: ".menu03",
-                    time: 1000,
-                    bold: "bold",
-                    isBold : false,
-                    boldNum : [0, 9]
-                });
+                // alinks.typingTxt({
+                //     remove: false,
+                //     content: "About us",
+                //     contentMobile: "About us",
+                //     strok: "",
+                //     isStrok: false,
+                //     target: ".menu01",
+                //     time: 1000,
+                //     bold: "bold",
+                //     isBold : false,
+                //     boldNum : [0, 9]
+                // });
+                // alinks2.typingTxt({
+                //     remove: false,
+                //     content: "eXperience ",
+                //     contentMobile: "eXperience ",
+                //     strok: "",
+                //     isStrok: false,
+                //     target: ".menu02",
+                //     time: 1000,
+                //     bold: "bold",
+                //     isBold : false,
+                //     boldNum : [0, 9]
+                // });
+                // alinks3.typingTxt({
+                //     remove: false,
+                //     content: "Contact",
+                //     contentMobile: "Contact",
+                //     strok: "",
+                //     isStrok: false,
+                //     target: ".menu03",
+                //     time: 1000,
+                //     bold: "bold",
+                //     isBold : false,
+                //     boldNum : [0, 9]
+                // });
 
                 close.on('click', function(){
                     $target.addClass('revers');
                     $target.removeClass('fade');
-                    alinks.text("");
-                    alinks2.text("");
-                    alinks3.text("");
+                    alinks.removeClass('up');
                 });
             });
         });
     };
+
+    $.fn.tabMenu = function(){
+        return this.each(function(){
+            var $this = $(this);
+            var $tabMenus = $this.find('>.tab-header>.tab-menu');
+            var $tabPanel = $this.find('.tab-panel');
+            $tabMenus.each(function(){
+                let tt = $(this);
+                var target = tt.attr('aria-controls');
+                tt.on('click', function(){
+                    $tabMenus.addClass('off');
+                    tt.removeClass('off');
+                    $tabPanel.each(function(){
+                        var ttt = $(this);
+                        var ids = ttt.attr('id');
+                        if(target == ids){
+                            ttt.show();
+                        }else {
+                            ttt.hide();
+                        }
+                    });
+
+
+                });
+            });
+        });
+    };
+
+    $.fn.linkLine = function(){
+        return this.each(function(){
+            var $this = $(this);
+            var target = $this.find('.menu-alink');
+            target.each(function(){
+                var tt = $(this);
+                tt.on('mouseenter', function(){
+                    tt.addClass('over');
+                    tt.removeClass('out');
+                });
+                tt.on('mouseleave', function(){
+                    tt.removeClass('over');
+                    tt.addClass('out')
+                });
+            });
+        });
+    }
 
 })(jQuery);
 
@@ -227,6 +300,8 @@ function isMobile(){
 
 document.addEventListener("DOMContentLoaded", function (e) {
     isMobile();
+    $('.total-menu-list').linkLine();
+    $('.tabWrap').tabMenu();
     $('.total-menu').totalAni();
     $('.main-txt').typingTxt({
         remove: true,
@@ -234,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         contentMobile: "Hello :) \n We are CXDIGM",
         strok: "strok",
         isStrok: true,
+        strokNum: [20,25],
         target: ".main-txt",
         time: 0,
         bold: "bold",
@@ -242,10 +318,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
     $('.main-slogan').typingTxt({
         remove: false,
-        content: "Change, eXperience",
-        contentMobile: "Change, eXperience",
+        content: "Change, eXperience Paradigm",
+        contentMobile: "Change, eXperience Paradigm",
         strok: "",
         isStrok: false,
+        strokNum: [],
         target: ".main-slogan",
         time: 2000,
         bold: "bold",
@@ -258,6 +335,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         contentMobile: "사용자경험의 \n 새로운 패러다임을 \n 만듭니다.",
         strok: "",
         isStrok: false,
+        strokNum: [],
         target: ".desc-title",
         time: 8000,
         bold: "bold",
@@ -266,10 +344,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
     $('.desc-cont').typingTxt({
         remove: false,
-        content: "사용디지털 산업에서 경험을 쌓아온 전문가들이 모여 사용자경험(CX)의 패러다임을 혁신하고 \n 고객의 비즈니스 성장을 위한 디지털트랜스포메이션을 주도해 나가고자 합니다.",
-        contentMobile: "사용디지털 산업에서 경험을 쌓아온 전문가들이 모여 사용자경험(CX)의 패러다임을 혁신하고 \n 고객의 비즈니스 성장을 위한 디지털트랜스포메이션을 주도해 나가고자 합니다.",
+        content: "디지털 산업에서 경험을 쌓아온 전문가들이 모여 사용자경험(CX)의 패러다임을 혁신하고 \n 고객의 비즈니스 성장을 위한 디지털트랜스포메이션을 주도해 나가고자 합니다.",
+        contentMobile: "디지털 산업에서 경험을 쌓아온 전문가들이 모여 사용자경험(CX)의 패러다임을 혁신하고 고객의 비즈니스 성장을 위한 디지털트랜스포메이션을 주도해 나가고자 합니다.",
         strok: "",
         isStrok: false,
+        strokNum: [],
         target: ".desc-cont",
         time: 9000,
         bold: "bold",
@@ -280,8 +359,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         remove: false,
         content: "Customer eXperience \n Innovative \n Digital Business",
         contentMobile: "Customer \n eXperience \n Innovative \n Digital Business",
-        strok: "",
-        isStrok: false,
+        strok: "strok",
+        isStrok: true,
+        strokNum: [22,32],
         target: ".slogan-box",
         time: 0,
         bold: "bold",
