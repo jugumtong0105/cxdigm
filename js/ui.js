@@ -161,6 +161,8 @@
     $.fn.totalMove = function(){
         return this.each(function(){
             var $this = $(this);
+            var line = $this.find('.line');
+            var mo = $('body').hasClass('mobile');
             var $link = $this.find('>a');
             var $target = $this.find('.total-menu-cont');
             var close = $(this).find('.close');
@@ -225,6 +227,17 @@
                     $target.addClass('revers');
                     $target.removeClass('fade');
                     alinks.removeClass('up');
+                    if(mo){
+                        line.each(function(){
+                            var tt = $(this);
+                            tt.css({
+                                'transform':'rotate(0) translate(0, 0)', 
+                            });
+                        });
+                            
+                    }
+                    
+                    
                 });
             });
         });

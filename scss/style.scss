@@ -415,10 +415,14 @@ html,body {
     @include mobile() {
         font-size: rem(200);
         top: rem(400);
+        width: rem(3000);
+        left: 50%
     }
     @include mobile-sm() {
         font-size: rem(100);
         top: rem(350);
+        left: 50%;
+        width: rem(1500);
     }
 }
 
@@ -440,7 +444,7 @@ html,body {
     background: linear-gradient(90deg, rgba(97,58,255,1) 0%, rgba(209,102,255,1) 100%);
     position: absolute;
     top: rem(380);
-    left: 35vw;
+    left: 710px;
     animation: lineMove 1s ease-in-out 8s forwards;
     @include mobile() {
         top: rem(265);
@@ -456,7 +460,13 @@ html,body {
 
 @keyframes lineMove {
 	0% {width:0;}
-	100% {width: 55vw;}
+	100% {width: calc(90% - rem(700));}
+}
+@include mobile() {
+    @keyframes lineMove {
+        0% {width:0;}
+        100% {width: calc(100% - rem(48));}
+    }
 }
 @include mobile-sm() {
     @keyframes lineMove {
@@ -468,7 +478,8 @@ html,body {
 .main-desc {
     position: absolute;
     top: rem(520);
-    left: 35%;
+    left: 710px;
+    right: 10vw;
     @include mobile() {
         top: rem(297);
         left: rem(24);
@@ -1087,22 +1098,5 @@ html,body {
     }
 }
 
-/* - 미디어 쿼리가 필요할때 이렇게 사용하거나 클래스 안에서 사용하거나...  - */
-@mixin mobile {
-    @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
-      @content;
-    }
-  }
-  
-  @mixin tablet {
-    @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
-      @content;
-    }
-  }
-  
-  @mixin desktop {
-    @media (min-width: #{$breakpoint-desktop}) {
-      @content;
-    }
-  }
+
 
