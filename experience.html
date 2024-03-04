@@ -3,23 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0">
-    <meta name="keywords"    content="CXdigm"/>
-    <meta name="description" content="CXdigm"/>
+    <meta name="keywords"    content="웹사이트 구축, 모바일 앱 구축, 운영 및 유지보수, UI/UX/CX, 금융 구축 및 운영"/>
+    <meta name="description" content="CXdigm. 사용자경험의 새로운 패러다임을 만듭니다.  UI/UX/CX, 금융, 리테일, 기업 브랜딩 채널 구축 및 운영"/>
 
     <meta property="og:type"       id="meta_og_type"        content="website">
     <meta property="og:url"        id="meta_og_url"         content="http://www.cxdigm.com">
     <meta property="og:title"      id="meta_og_title"       content="CXdigm">
-    <meta property="og:description"id="meta_og_description" content="UI/UX 전문 웹에이전시">
+    <meta property="og:description"id="meta_og_description" content="사용자경험의 새로운 패러다임을 만듭니다.  UI/UX/CX, 금융, 리테일, 기업 브랜딩 채널 구축 및 운영">
     <meta property="og:site_name"  id="meta_og_site_name"   content="CXdigm">
+    <meta property="og:image" content="/img/thum.png">
 
     <title>CXDIGM</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="./js/ui.js"></script>
+    
+    <style>
+        main {
+            padding: 2rem 0;
+        }
+        .tiny {
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .swiper-wrapper{
+            -webkit-transition-timing-function:linear!important;    transition-timing-function:linear!important; 
+            position: relative;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 33px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            position: relative;
+            overflow: hidden;
+            padding: 0 50px;
+        }
+
+
+    </style>
+    
 </head>
 <body>
-    <h1 class="logo"><a href="./main.html">CX<span>DIGM</span></a></h1>
+    <h1 class="logo"><a href="./index.html">CX<span>DIGM</span></a></h1>
     <div class="total-menu">
         <a href="#none" role="button" class="total-menu-alink">
             <div class="line"></div>
@@ -58,32 +96,46 @@
     </div>
     <section class="ex-top">
         <h2 class="ex-top-slogan"><span>Performance</span> eXperience</h2>
-        <div class="ex-top-box">
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
+        <div class="ex-top-box ex-top swiper-container">
+            <div class="swiper-wrapper">
+                <div class="ex-top-item item01 swiper-slide"></div>
+                <div class="ex-top-item item02 swiper-slide"></div>
+                <div class="ex-top-item item03 swiper-slide"></div>
+                <div class="ex-top-item item04 swiper-slide"></div>
+                <div class="ex-top-item item05 swiper-slide"></div>
+                <div class="ex-top-item item06 swiper-slide"></div>
+                <div class="ex-top-item item07 swiper-slide"></div>
+            </div>
         </div>
-        <div class="ex-top-box">
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
+        <div class="ex-top-box2 ex-mid swiper-container">
+            <div class="swiper-wrapper">
+                <div class="ex-top-item item01 swiper-slide"></div>
+                <div class="ex-top-item item02 swiper-slide"></div>
+                <div class="ex-top-item item03 swiper-slide"></div>
+                <div class="ex-top-item item04 swiper-slide"></div>
+                <div class="ex-top-item item05 swiper-slide"></div>
+                <div class="ex-top-item item06 swiper-slide"></div>
+                <div class="ex-top-item item07 swiper-slide"></div>
+            </div>
         </div>
-        <div class="ex-top-box">
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
-            <div class="ex-top-item"></div>
+        <div class="ex-top-box3 ex-bottom swiper-container">
+            
+            <div class="swiper-wrapper">
+                <div class="ex-top-item item01 swiper-slide"></div>
+                <div class="ex-top-item item02 swiper-slide"></div>
+                <div class="ex-top-item item03 swiper-slide"></div>
+                <div class="ex-top-item item04 swiper-slide"></div>
+                <div class="ex-top-item item05 swiper-slide"></div>
+                <div class="ex-top-item item06 swiper-slide"></div>
+                <div class="ex-top-item item07 swiper-slide"></div>
+            </div>
+           
         </div>
         
     </section>
+
+    
+
     <section class="ex-cont">
         <h2 id="tablist-1"><span>Creative</span> eXpert</h2>
         <p class="ex-cont-desc">각 부문 전문가들의 오랜 노하우를 바탕으로 온라인 기반의 비대면 금융서비스 사업에 최적화된 서비스를 제공합니다.</p>
@@ -192,5 +244,52 @@
         </div>
         
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        let SwiperTop = new Swiper('.ex-top-box', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            speed: 8000,
+            autoplay: {
+                delay: 1,
+                reverseDirection: false
+            },
+            loop: true,
+            slidesPerView:'auto',
+            allowTouchMove: false,
+            disableOnInteraction: true
+        });
+
+        let SwiperMid = new Swiper('.ex-mid', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            speed: 8000,
+            autoplay: {
+                delay: 1,
+                reverseDirection: true
+            },
+            loop: true,
+            slidesPerView:'auto',
+            allowTouchMove: false,
+            disableOnInteraction: true
+        });
+
+        let SwiperBottom = new Swiper('.ex-bottom', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            speed: 8000,
+            autoplay: {
+                delay: 1,
+                reverseDirection: false
+            },
+            loop: true,
+            slidesPerView:'auto',
+            allowTouchMove: false,
+            disableOnInteraction: true
+        });
+
+        
+
+    </script>
 </body>
 </html>

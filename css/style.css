@@ -997,6 +997,7 @@ html, body {
   width: 100%;
   text-align: center;
   transform: translateY(-50%);
+  z-index: 99;
 }
 @media screen and (max-width: 1024px) {
   .ex-top .ex-top-slogan {
@@ -1012,33 +1013,105 @@ html, body {
   color: var(--black);
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
 }
-.ex-top .ex-top-box {
+.ex-top .ex-top .ex-top-item.item01 {
+  background: url(../img/exp/top/01.png) no-repeat 0 0;
+}
+.ex-top .ex-top .ex-top-item.item02 {
+  background: url(../img/exp/top/02.png) no-repeat 0 0;
+}
+.ex-top .ex-top .ex-top-item.item03 {
+  background: url(../img/exp/top/03.png) no-repeat 0 0;
+}
+.ex-top .ex-top .ex-top-item.item04 {
+  background: url(../img/exp/top/04.png) no-repeat 0 0;
+}
+.ex-top .ex-top .ex-top-item.item05 {
+  background: url(../img/exp/top/05.png) no-repeat 0 0;
+}
+.ex-top .ex-top .ex-top-item.item06 {
+  background: url(../img/exp/top/01.png) no-repeat 0 0;
+}
+.ex-top .ex-top .ex-top-item.item07 {
+  background: url(../img/exp/top/02.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item01 {
+  background: url(../img/exp/mid/01.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item02 {
+  background: url(../img/exp/mid/02.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item03 {
+  background: url(../img/exp/mid/03.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item04 {
+  background: url(../img/exp/mid/04.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item05 {
+  background: url(../img/exp/mid/05.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item06 {
+  background: url(../img/exp/mid/06.png) no-repeat 0 0;
+}
+.ex-top .ex-mid .ex-top-item.item07 {
+  background: url(../img/exp/mid/01.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item01 {
+  background: url(../img/exp/bottom/01.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item02 {
+  background: url(../img/exp/bottom/02.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item03 {
+  background: url(../img/exp/bottom/03.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item04 {
+  background: url(../img/exp/bottom/04.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item05 {
+  background: url(../img/exp/bottom/05.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item06 {
+  background: url(../img/exp/bottom/01.png) no-repeat 0 0;
+}
+.ex-top .ex-bottom .ex-top-item.item07 {
+  background: url(../img/exp/bottom/02.png) no-repeat 0 0;
+}
+.ex-top .ex-top-box, .ex-top .ex-top-box2, .ex-top .ex-top-box3 {
   width: 2540px;
   display: flex;
   flex-wrap: wrap;
 }
-.ex-top .ex-top-box .ex-top-item {
-  background: rgba(217, 217, 217, 0.2);
+@media screen and (max-width: 1024px) {
+  .ex-top .ex-top-box, .ex-top .ex-top-box2, .ex-top .ex-top-box3 {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .ex-top .ex-top-box, .ex-top .ex-top-box2, .ex-top .ex-top-box3 {
+    width: 100%;
+  }
+}
+.ex-top .ex-top-box .ex-top-item, .ex-top .ex-top-box2 .ex-top-item, .ex-top .ex-top-box3 .ex-top-item {
+  background-size: 100% !important;
   border-radius: 30px;
-  height: 200px;
-  width: 350px;
+  height: 270px;
+  width: 420px;
 }
 @media screen and (max-width: 1024px) {
-  .ex-top .ex-top-box .ex-top-item {
-    width: 940px;
+  .ex-top .ex-top-box .ex-top-item, .ex-top .ex-top-box2 .ex-top-item, .ex-top .ex-top-box3 .ex-top-item {
+    width: 420px;
     font-size: 2.5rem;
     border-radius: 10px;
   }
 }
 @media screen and (max-width: 500px) {
-  .ex-top .ex-top-box .ex-top-item {
-    width: 940px;
+  .ex-top .ex-top-box .ex-top-item, .ex-top .ex-top-box2 .ex-top-item, .ex-top .ex-top-box3 .ex-top-item {
     width: 147px;
     height: 95px;
     border-radius: 10px;
   }
 }
-.ex-top .ex-top-box .ex-top-item + .ex-top-item {
+.ex-top .ex-top-box .ex-top-item + .ex-top-item, .ex-top .ex-top-box2 .ex-top-item + .ex-top-item, .ex-top .ex-top-box3 .ex-top-item + .ex-top-item {
   margin-left: 10px;
   margin-bottom: 10px;
 }
@@ -1099,6 +1172,8 @@ html, body {
 @media screen and (max-width: 500px) {
   .tab-header {
     margin-top: 50px;
+    margin: 50px -24px;
+    padding: 0 24px;
   }
 }
 .tab-header .btn-typeA + .btn-typeA {
@@ -1106,7 +1181,7 @@ html, body {
 }
 @media screen and (max-width: 500px) {
   .tab-header .btn-typeA + .btn-typeA {
-    margin-left: 10px;
+    margin-left: 5px;
     padding: 0.875rem 1.25rem;
   }
 }
