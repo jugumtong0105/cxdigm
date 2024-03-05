@@ -32,6 +32,16 @@ html, body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #7c7c7c;
+  border-radius: 20px;
+}
+
 .logo {
   color: var(--white);
   font-family: var(--font-mon-900);
@@ -394,6 +404,17 @@ html, body {
     width: 0vw;
     opacity: 0;
   }
+}
+
+.main-cont {
+  height: 100vh;
+  width: 100%;
+}
+.main-cont.white {
+  background: var(--white);
+}
+.main-cont.black {
+  background: var(--black);
 }
 
 .main-txt {

@@ -167,8 +167,7 @@
             var $target = $this.find('.total-menu-cont');
             var close = $(this).find('.close');
             var alinks = $(this).find('.menu-alink');
-            // var alinks2 = $(this).find('.menu-alink.menu02');
-            // var alinks3 = $(this).find('.menu-alink.menu03');
+            
             $link.on('click', function(){
                 $target.removeClass('revers');
                 $target.addClass('fade');
@@ -186,42 +185,7 @@
                     
                     
                 });
-                // alinks.typingTxt({
-                //     remove: false,
-                //     content: "About us",
-                //     contentMobile: "About us",
-                //     strok: "",
-                //     isStrok: false,
-                //     target: ".menu01",
-                //     time: 1000,
-                //     bold: "bold",
-                //     isBold : false,
-                //     boldNum : [0, 9]
-                // });
-                // alinks2.typingTxt({
-                //     remove: false,
-                //     content: "eXperience ",
-                //     contentMobile: "eXperience ",
-                //     strok: "",
-                //     isStrok: false,
-                //     target: ".menu02",
-                //     time: 1000,
-                //     bold: "bold",
-                //     isBold : false,
-                //     boldNum : [0, 9]
-                // });
-                // alinks3.typingTxt({
-                //     remove: false,
-                //     content: "Contact",
-                //     contentMobile: "Contact",
-                //     strok: "",
-                //     isStrok: false,
-                //     target: ".menu03",
-                //     time: 1000,
-                //     bold: "bold",
-                //     isBold : false,
-                //     boldNum : [0, 9]
-                // });
+                
 
                 close.on('click', function(){
                     $target.addClass('revers');
@@ -286,9 +250,26 @@
                 });
             });
         });
-    }
+    };
+
+    $.fn.mainContBox = function(){
+        var $this = $(this);
+        var target = $this.find('.main-cont');
+        target.each(function(){
+            var tt = $(this);
+            var info = tt.offset().top;
+            console.log(info);
+        });
+    };
+
+    
 
 })(jQuery);
+
+
+
+
+
 
 
 function isMobile(){
@@ -313,6 +294,7 @@ function isMobile(){
 
 document.addEventListener("DOMContentLoaded", function (e) {
     isMobile();
+    $('.main').mainContBox();
     $('.total-menu-list').linkLine();
     $('.tabWrap').tabMenu();
     $('.total-menu').totalAni();
